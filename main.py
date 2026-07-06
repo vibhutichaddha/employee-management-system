@@ -125,3 +125,42 @@ def main():
             print(f"\nError: Please enter a valid numeric value.")
 if __name__ == "__main__":
     main()
+import json
+import logging
+import os
+from developer import Developer 
+from manager import Manager 
+from hr import HR
+os.makedirs("logs",exist_ok=True)
+logging.basicConfig(
+    filename="logs/application.log",
+    level=logging.INFO,
+    format="%(asctime)s-%(levelname)s-%(message)s"
+)
+filename="employees.json"
+def load_employees():
+    try:
+        with open(filename,"r") as file:
+            data=json.load(file)
+        employees=[]
+        for emp in data:
+            if emp in data:
+                if emp["type"]=="Developer":
+                    employee=Developer(emp["id"],emp["name"],emp["salary"])
+                elif emp["type"]=="Manager":
+                    employee=Manager(emp["id"],emp["name"],emp["salary"])
+                elif emp["type"]=="HR":
+                    employee=Manager(emp["id"],emp["name"],emp["salary"])
+                employees.append(employee)
+        logging.info("Employee data loaded from JSON")
+        return employees
+    except FileNotFoundError:
+        logging.warning("employees.json not found")
+        return[]
+def save_employees():
+    data=[]
+    for employee in employees:
+        data.append({"id":employee.id,"name":employee.name,"salary":employee.salary,"type":employee.__class__.__name__})
+    with open(filename,"w") as file:
+        json.dump(data, file, indent=4)
+    logging.info("Employee data saved to JSON")
