@@ -3,12 +3,12 @@
 The employee management system is a menu friven python application developed using OOP concepts.
 The system manages employee records and supports different employee types such as Developer, Manager and HR. It demonstrates core Python concepts including inheritance, polymorphism, encapsulation, properties, dataclasses, object association and exception handling.
 ## Features
-Add employee
-Search employee by ID
-Update employee salary
-Delete employee
-Display all employees
-Calculate Bonus based on employee type
+-Add employee
+-Search employee by ID
+-Update employee salary
+-Delete employee
+-Display all employees
+-Calculate Bonus based on employee type
 ## Execution steps
 1. Clone the repository
 2. Navigate the project directory
