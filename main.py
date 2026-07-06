@@ -29,8 +29,9 @@ def create_employee(employee_type, employee_id, name, salary, address):
 def add_employee():
     """Add a new employee:"""
     employee_id=int(input("Enter Employee ID: "))
+    validate_duplicate_id(employee_id)
     name=input("Enter Employee Name: ").strip()
-    salary=float(input("Enter Employee Salary: "))
+    salary=int(input("Enter Employee Salary: "))
     city=input("Enter City: ").strip()
     state=input("Enter State: ").strip()
     country=input("Enter Country: ").strip()
